@@ -20,10 +20,7 @@ universal_binaries:
 brews:
   -
     name: trunkit
-    homepage: https://github.com/ChisTrun
-    tap:
-      owner: trunkit
-      name: trunkit
+    homepage: https://github.com/ChisTrun/trunkit
     commit_author:
       name: ChisTrun
       email: vochitrung.pst@gmail.com
