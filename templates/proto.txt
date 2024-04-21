@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package %v;
+
+option go_package="%v";
+
+service %v {
+    
+}
