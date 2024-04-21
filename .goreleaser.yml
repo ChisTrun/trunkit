@@ -19,7 +19,7 @@ universal_binaries:
 
 brews:
   -
-    name: trunkit
+    name: github.com/ChisTrun/trunkit
     homepage: https://github.com/ChisTrun/trunkit
     commit_author:
       name: ChisTrun
