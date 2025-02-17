@@ -1,0 +1,14 @@
+package {{ .ServiceName | lowercase }}
+
+import (
+	"{{ .Package }}"
+)
+
+func NewServer() {{ .ProjectName | lowerCamel }}.{{ .ServiceName | camelcase }}Server {
+	return &{{ .ServiceName | lowerCamel }}Server{
+	}
+}
+
+type {{ .ServiceName | lowerCamel }}Server struct {
+	{{ .ProjectName | lowerCamel }}.Unimplemented{{ .ServiceName | camelcase }}Server
+}

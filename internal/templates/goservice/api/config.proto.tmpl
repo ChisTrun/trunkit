@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package {{ .ProjectName | lowercase }}.config;
+
+option go_package = "{{ .ProtoGoPackage }}/pkg/config;{{ .ProjectName | lowercase }}";
+
+import "validate/validate.proto";
+import "logger/api/logger.proto";
+import "carbon/api/carbon.proto";
+
+message Config {
+  greyhole.carbon.Listener listener = 1 [ (validate.rules).message = {required : true} ];
+  greyhole.logger.Logger logger = 2 [ (validate.rules).message = {required : true} ];
+}

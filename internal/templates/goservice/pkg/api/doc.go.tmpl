@@ -1,0 +1,5 @@
+package {{ .PackageName }}
+
+{{- range .Services }}
+//go:generate mockery --name {{ . }}Client --case=underscore
+{{ end }}

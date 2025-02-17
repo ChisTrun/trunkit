@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package {{ .ProjectName | lowercase }};
+
+option go_package = "{{ .ProtoGoPackage }}/api;{{ .ProjectName | lowercase }}";
+
+service {{ .ProjectName | camelcase }} {
+}
+

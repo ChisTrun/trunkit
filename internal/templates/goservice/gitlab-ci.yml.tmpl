@@ -1,0 +1,12 @@
+variables:
+  SERVICE: {{ .ProjectName | lowercase }}
+{{ if eq .Type "library" }}
+  BUILD_DOCKER_IMAGE: "false"
+  BUILD_PROTO: "false"
+  SHORT_VERSION: "true"
+{{ end }}
+  
+include:
+  - project: "marketplace/cicd"
+    ref: "main"
+    file: "/templates/backend.gitlab-ci.yml"

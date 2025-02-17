@@ -1,0 +1,39 @@
+package server
+
+import (
+	mykit "{{ .MyKitBase }}/pkg/api"
+	"google.golang.org/grpc/reflection"
+	{{ "\n" }}
+	{{- range $index, $value := .ProtoServices }}
+	{{- range .Services }}
+	"{{ $.Package }}/{{ $.GrpcServerPath }}/{{ . | lowercase }}"
+	{{- end }}
+	{{- end }}
+	{{- range $index, $value := .ProtoServices }}
+	pb{{ $index }} "{{ .GoPackage }}"
+	{{- end }}
+	config "{{ .Package }}/{{ .GoConfigPath }}"
+)
+
+// Serve ...
+{{- if .GenOpts.AllowCustomOptions }}
+func Serve(cfg *config.Config) {
+	service := newService(cfg, []mykit.Option{}...)
+{{ else }}
+func Serve(cfg *config.Config, service mykit.Service) {
+{{- end }}
+	{{- if .ProtoServices }}
+	server := service.Server()
+	{{- range $index, $value := .ProtoServices }}
+	{{- range .Services }}
+	pb{{ $index }}.Register{{ . | camelcase }}Server(server, {{ . | lowercase }}.NewServer())
+	{{- end }}
+	{{- end }}
+	{{- end }}
+
+	// Register reflection service on gRPC server.
+	// Please remove if you it's not necessary for your service
+	reflection.Register(server)
+
+	service.Serve()
+}

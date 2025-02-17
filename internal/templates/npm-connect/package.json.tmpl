@@ -1,0 +1,34 @@
+{
+  "name": "{{ .Package }}",
+  "version": "{{ .Version }}",
+  "description": "{{ .Name | lowercase }} service",
+  "author": "{{ .Author }}",
+  "homepage": "",
+  "scripts": {
+    "build": "rm -fr dist/* && npm run copy-esm && npm run rename-esm && npm run rename-types && npm run build-cjs && npm run remove-src",
+    "copy-esm": "mkdir -p ./dist/esm ./dist/types && cp ./*.js ./dist/esm/ && cp ./*.d.ts ./dist/types",
+    "rename-esm":"cd ./dist/esm/ && ls |grep \".js$\" | xargs basename -s \".js\" |  while read file; do mv $file.js $file.mjs; done",
+    "rename-types":"cd ./dist/types/ && ls |grep \".ts$\" | xargs basename -s \".ts\" |  while read file; do mv $file.ts $file.mts; done",
+    "build-cjs": "tsc -p tsconfig-cjs.json",
+    "clean": "rm -rf ./dist/cjs/* ./dist/esm/* ./dist/types/*",
+    "remove-src": "rm -f ./*.ts ./*.js ./*.d.ts ./tsconfig-cjs.json"
+  },
+  "exports": {
+    {{ .Exports }}
+  },
+  "typesVersions": {
+    {{ .TypesVersions }}
+  },
+  "dependencies": {
+    {{ .Dependencies }}
+  },
+  "devDependencies": {
+    {{ .DevDependencies }}
+  },
+  "peerDependencies": {
+    {{ .PeerDependencies }}
+  },
+  "publishConfig": {
+    "@{{ .Namespace }}:registry": "https://{{ .Registry }}"
+  }
+}

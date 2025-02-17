@@ -1,0 +1,5 @@
+{{ range .Registries }}
+@{{ .Namespace }}:registry=https://{{ .Registry }}
+//{{ .Registry }}:_authToken={{ .AuthToken | uppercase}}
+{{"\n"}}
+{{ end }}

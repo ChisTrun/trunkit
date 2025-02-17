@@ -1,0 +1,85 @@
+version: '3.7'
+
+services:
+  {{- if .AddGateway }}
+  {{ .GatewayServiceName | lowercase }}:
+    build:
+      context: {{ .ParentDir | lowercase }}
+      dockerfile: envoy.dockerfile
+      args:
+        - service={{ .GatewayServiceName | lowercase }}
+        - BOT_USER
+        - BOT_PRIVATE_TOKEN
+        - CI_PROJECT_NAMESPACE
+    image: registry.ugaming.io/marketplace/packages/{{ .GatewayServiceName | lowercase }}:latest
+    restart: "no"
+    container_name: {{ .GatewayServiceName | lowercase }}
+    ports:
+      - "18080:18080"
+      - "9080:8080"
+    command:
+        - /app/scripts/docker-entrypoint.sh
+    environment:
+      - DOGSTATSD_HOST_IP=0.0.0.0
+      - ENVOY_UID=0
+    logging:
+      options:
+        max-file: "2"
+        max-size: 10m
+
+  {{- end }}
+  {{ .ProjectName | lowercase }}:
+    build:
+      context: .
+      dockerfile: build/Dockerfile
+      args:
+        - service={{ .ProjectName | lowercase }}
+        - BOT_USER
+        - BOT_PRIVATE_TOKEN
+        - CI_PROJECT_NAMESPACE
+    image: registry.ugaming.io/marketplace/packages/{{ .ProjectName | lowercase }}:latest
+    restart: "no"
+    container_name: {{ .ProjectName | lowercase }}
+    ports:
+      - "8765:8765"
+      - "8766:8766"
+    environment: 
+      LISTENER_TCP_ADDRESS: 0.0.0.0
+      DATABASE_AUTH_METHOD: AUTH_METHOD_USERNAME_PASSWORD
+      DATABASE_HOST: mysql-db
+      DATABASE_NAME: db
+      DATABASE_USERNAME: root
+      DATABASE_PASSWORD: root
+      REDIS_ADDRESS: redis-db:6379
+      DATABASE_AWS_REGION: none 
+      # ....
+    command: [ "./app/server", "-c", "/app/config.yaml" ]
+    depends_on: 
+      - mysql-db
+      - redis-db
+    logging:
+      options:
+        max-file: "2"
+        max-size: 10m
+
+  mysql-db:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_volume:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+      MYSQL_ROOT_HOST: "%"
+      
+  redis-db:
+    image: redis:latest
+    ports:
+      - 6379:6379
+    volumes:
+      - redis_volume:/data
+
+volumes:
+  mysql_volume:
+  redis_volume:

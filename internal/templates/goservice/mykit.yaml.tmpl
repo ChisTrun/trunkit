@@ -1,0 +1,45 @@
+project:
+  name: {{ .ProjectName | lowercase }}
+  monorepo: {{ .Monorepo }}
+  go_package: {{ .Package | lowercase }}
+  npm_package: "@marketplace/{{ .ProjectName | lowercase }}"
+  npm_registry: gitlab.ugaming.io/api/v4/projects/42/packages/npm/
+
+extend: # extend file name
+
+generate:
+  allow_custom_options: true
+  profiling:
+    port: 6060
+    enable: false
+  dockerfile:
+    enable: {{ if eq .Type "service" }}true{{ else }}false{{ end }}
+  ent:
+    enable: {{ .Ent }}
+  command:
+    enable: {{ if eq .Type "service" }}true{{ else }}false{{ end }}
+  server:
+    enable: {{ if eq .Type "service" }}true{{ else }}false{{ end }}
+    path: internal/server
+  grpc_server:
+    enable: true
+    path: {{ if eq .Type "service" }}internal/server{{ else }}pkg/server{{ end }}
+  grpc_gateway:
+    enable: false
+  client:
+    enable: {{ .Client }}
+    path: pkg/client
+  helm:
+    enable: false
+  proto:
+    go:
+    {{- range .GenerateGo }}
+      - {{ . }}
+    {{- end }}
+    js:
+    {{- range .GenerateJs }}
+      - {{ . }}
+    {{- end }}
+    imports: # optional
+  grpc_log:
+    enable: false

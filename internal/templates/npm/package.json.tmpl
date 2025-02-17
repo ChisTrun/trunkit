@@ -1,0 +1,22 @@
+{
+  "name": "{{ .Package }}",
+  "version": "{{ .Version }}",
+  "description": "{{ .Name | lowercase }} service",
+  "author": "{{ .Author }}",
+  "homepage": "",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    {{ .Dependencies }}
+  },
+  "devDependencies": {
+    {{ .DevDependencies }}
+  },
+  "peerDependencies": {
+    {{ .PeerDependencies }}
+  },
+  "publishConfig": {
+    "@{{ .Namespace }}:registry": "https://{{ .Registry }}"
+  }
+}

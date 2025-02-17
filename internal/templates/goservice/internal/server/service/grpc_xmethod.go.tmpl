@@ -1,0 +1,24 @@
+package {{ .ServiceName | lowercase }}
+
+import (
+	"context"
+
+	{{ range $key, $value := .Imports }}
+    {{ $value.ImportAlias }} "{{ $value.ImportPath }}"
+    {{ end }}
+
+    {{- if .HasImportProto }}
+    "{{ .Package }}"
+	{{- end}}
+)
+
+func (s *{{ .ServiceName | lowerCamel }}Server) {{ .Method | camelcase }}(ctx context.Context, request *{{ .RequestType }}) (*{{ .ReturnsType }}, error) {
+	 {{- if .HasImportProto }}
+     if err := request.Validate(); err != nil {
+         return nil, err
+     }
+     {{- end}}
+
+
+	return &{{ .ReturnsType }}{}, nil
+}
