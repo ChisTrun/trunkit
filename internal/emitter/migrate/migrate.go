@@ -14,7 +14,6 @@ import (
 	"github.com/ChisTrun/trunkit/internal/constant"
 	"github.com/ChisTrun/trunkit/internal/emitter/common"
 	"github.com/ChisTrun/trunkit/internal/metadata"
-	"github.com/ChisTrun/trunkit/internal/util/gocmd"
 	osutil "github.com/ChisTrun/trunkit/internal/util/os"
 )
 
