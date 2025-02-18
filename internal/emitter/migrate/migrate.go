@@ -97,7 +97,7 @@ func Migrate(source, newServiceName string, cfg *config.GenerateConfig) {
 	//	"gitlab.ugaming.io/marketplace/mywallet@v1.0.0-mywallet-cfe7cf0a",
 	//	"gitlab.ugaming.io/marketplace/potter@v1.0.0-potter-c5a6f005",
 	//})
-	gocmd.Vendor(cfg)
+	// gocmd.Vendor(cfg)
 }
 
 func replaceGoImports(fileContent string) string {
