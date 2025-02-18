@@ -147,7 +147,7 @@ func executeProtoc(context string, protoFiles []string, outPaths []string, cfg *
 		os.Exit(1)
 	}
 
-	gocmd.Vendor(cfg)
+	// gocmd.Vendor(cfg)
 }
 
 func readAllTypeInProtos(protoFile string) []string {
@@ -186,7 +186,7 @@ func getImports(protoFiles []string, cfg *config.GenerateConfig) []string {
 		}
 	}
 
-	gocmd.Vendor(cfg)
+	// gocmd.Vendor(cfg)
 	gocmd.Bootstrap(goPackages, cfg)
 
 	// Resolve proto types of import files
