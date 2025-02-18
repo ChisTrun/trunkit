@@ -4,15 +4,15 @@ import (
 	"fmt"
 	"os"
 
-	"mykit/internal/config"
-	"mykit/internal/metadata"
+	"trunkit/internal/config"
+	"trunkit/internal/metadata"
 
 	"github.com/spf13/cobra"
 
-	goemitter "mykit/internal/emitter/generate/go"
-	"mykit/internal/emitter/generate/java"
-	jsemitter "mykit/internal/emitter/generate/js"
-	"mykit/internal/emitter/generate/swift"
+	goemitter "trunkit/internal/emitter/generate/go"
+	"trunkit/internal/emitter/generate/java"
+	jsemitter "trunkit/internal/emitter/generate/js"
+	"trunkit/internal/emitter/generate/swift"
 )
 
 var _cmdGenerate = &cobra.Command{

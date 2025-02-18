@@ -9,9 +9,9 @@ import (
 	"github.com/manifoldco/promptui"
 	"github.com/spf13/cobra"
 
-	"mykit/internal/constant"
-	"mykit/internal/metadata"
-	osutil "mykit/internal/util/os"
+	"trunkit/internal/constant"
+	"trunkit/internal/metadata"
+	osutil "trunkit/internal/util/os"
 )
 
 var _cmdUpgrade = &cobra.Command{

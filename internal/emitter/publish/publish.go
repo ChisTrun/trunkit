@@ -3,7 +3,7 @@ package publish
 import (
 	"time"
 
-	"mykit/internal/config"
+	"trunkit/internal/config"
 
 	"github.com/briandowns/spinner"
 )

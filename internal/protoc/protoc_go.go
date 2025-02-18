@@ -8,9 +8,9 @@ import (
 
 	"github.com/emicklei/proto"
 
-	"mykit/internal/config"
-	"mykit/internal/metadata"
-	osutil "mykit/internal/util/os"
+	"trunkit/internal/config"
+	"trunkit/internal/metadata"
+	osutil "trunkit/internal/util/os"
 )
 
 func Go(cfg *config.GenerateConfig) {

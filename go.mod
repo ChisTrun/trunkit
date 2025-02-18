@@ -1,4 +1,4 @@
-module mykit
+module trunkit
 
 go 1.20
 

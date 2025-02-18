@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"strings"
 
-	"mykit/internal/config"
+	"trunkit/internal/config"
 )
 
 var _templates = map[string]string{

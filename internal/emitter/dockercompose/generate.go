@@ -6,9 +6,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"mykit/internal/config"
-	"mykit/internal/emitter/common"
-	osutil "mykit/internal/util/os"
+	"trunkit/internal/config"
+	"trunkit/internal/emitter/common"
+	osutil "trunkit/internal/util/os"
 )
 
 //go:embed *

@@ -3,9 +3,9 @@ package cmd
 import (
 	"fmt"
 
-	"mykit/cmd/flags"
-	emitter "mykit/internal/emitter/build"
-	"mykit/internal/metadata"
+	"trunkit/cmd/flags"
+	emitter "trunkit/internal/emitter/build"
+	"trunkit/internal/metadata"
 
 	"github.com/spf13/cobra"
 )

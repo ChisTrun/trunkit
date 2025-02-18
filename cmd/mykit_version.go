@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"mykit/internal/metadata"
+	"trunkit/internal/metadata"
 )
 
 var _cmdVersion = &cobra.Command{

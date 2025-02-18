@@ -10,12 +10,12 @@ import (
 
 	"gopkg.in/yaml.v3"
 
-	"mykit/internal/config"
-	"mykit/internal/constant"
-	"mykit/internal/emitter/common"
-	"mykit/internal/metadata"
-	"mykit/internal/util/gocmd"
-	osutil "mykit/internal/util/os"
+	"trunkit/internal/config"
+	"trunkit/internal/constant"
+	"trunkit/internal/emitter/common"
+	"trunkit/internal/metadata"
+	"trunkit/internal/util/gocmd"
+	osutil "trunkit/internal/util/os"
 )
 
 var (

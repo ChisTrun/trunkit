@@ -8,8 +8,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"mykit/internal/config"
-	"mykit/internal/protoc"
+	"trunkit/internal/config"
+	"trunkit/internal/protoc"
 )
 
 func Generate(cfg *config.GenerateConfig) string {

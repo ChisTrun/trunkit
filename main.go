@@ -1,6 +1,6 @@
 package main
 
-import "mykit/cmd"
+import "trunkit/cmd"
 
 func main() {
 	cmd.Run()

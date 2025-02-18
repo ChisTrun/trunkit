@@ -9,7 +9,7 @@ import (
 	"regexp"
 	"strings"
 
-	osutil "mykit/internal/util/os"
+	osutil "trunkit/internal/util/os"
 
 	"gopkg.in/yaml.v3"
 )

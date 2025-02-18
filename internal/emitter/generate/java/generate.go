@@ -6,10 +6,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"mykit/internal/config"
-	"mykit/internal/emitter/common"
-	"mykit/internal/metadata"
-	"mykit/internal/protoc"
+	"trunkit/internal/config"
+	"trunkit/internal/emitter/common"
+	"trunkit/internal/metadata"
+	"trunkit/internal/protoc"
 )
 
 // Generate Java protobuf -> return(

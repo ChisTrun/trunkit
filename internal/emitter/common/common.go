@@ -9,10 +9,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"mykit/internal/metadata"
-	"mykit/internal/template"
-	"mykit/internal/templates"
-	osutil "mykit/internal/util/os"
+	"trunkit/internal/metadata"
+	"trunkit/internal/template"
+	"trunkit/internal/templates"
+	osutil "trunkit/internal/util/os"
 )
 
 func Render(templatePath string, outPath string, data template.Data, options ...RenderOption) {

@@ -10,13 +10,13 @@ import (
 	"github.com/emicklei/proto"
 	"gopkg.in/yaml.v3"
 
-	"mykit/internal/config"
-	"mykit/internal/constant"
-	"mykit/internal/emitter/common"
-	"mykit/internal/metadata"
-	"mykit/internal/protoc"
-	"mykit/internal/template"
-	osutil "mykit/internal/util/os"
+	"trunkit/internal/config"
+	"trunkit/internal/constant"
+	"trunkit/internal/emitter/common"
+	"trunkit/internal/metadata"
+	"trunkit/internal/protoc"
+	"trunkit/internal/template"
+	osutil "trunkit/internal/util/os"
 )
 
 const (

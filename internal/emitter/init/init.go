@@ -7,10 +7,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"mykit/internal/constant"
-	"mykit/internal/emitter/common"
-	"mykit/internal/metadata"
-	osutil "mykit/internal/util/os"
+	"trunkit/internal/constant"
+	"trunkit/internal/emitter/common"
+	"trunkit/internal/metadata"
+	osutil "trunkit/internal/util/os"
 )
 
 var _initFilePaths = []struct {

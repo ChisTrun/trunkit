@@ -5,8 +5,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	emitter "mykit/internal/emitter/setup"
-	"mykit/internal/metadata"
+	emitter "trunkit/internal/emitter/setup"
+	"trunkit/internal/metadata"
 )
 
 var _cmdSetup = &cobra.Command{
