@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"trunkit/internal/constant"
-	osutil "trunkit/internal/util/os"
+	"github.com/ChisTrun/trunkit/internal/constant"
+	osutil "github.com/ChisTrun/trunkit/internal/util/os"
 )
 
 const (

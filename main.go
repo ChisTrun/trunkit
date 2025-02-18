@@ -1,6 +1,6 @@
 package main
 
-import "trunkit/cmd"
+import "github.com/ChisTrun/trunkit/cmd"
 
 func main() {
 	cmd.Run()

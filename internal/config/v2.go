@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"trunkit/internal/metadata"
+	"github.com/ChisTrun/trunkit/internal/metadata"
 
 	"github.com/creasty/defaults"
 )

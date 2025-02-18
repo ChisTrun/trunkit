@@ -6,8 +6,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	emitter "trunkit/internal/emitter/deploy"
-	"trunkit/internal/metadata"
+	emitter "github.com/ChisTrun/trunkit/internal/emitter/deploy"
+	"github.com/ChisTrun/trunkit/internal/metadata"
 )
 
 var (

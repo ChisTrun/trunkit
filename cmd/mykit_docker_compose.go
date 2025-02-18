@@ -3,12 +3,12 @@ package cmd
 import (
 	"fmt"
 
-	"trunkit/internal/config"
-	"trunkit/internal/metadata"
+	"github.com/ChisTrun/trunkit/internal/config"
+	"github.com/ChisTrun/trunkit/internal/metadata"
 
 	"github.com/spf13/cobra"
 
-	dcemitter "trunkit/internal/emitter/dockercompose"
+	dcemitter "github.com/ChisTrun/trunkit/internal/emitter/dockercompose"
 )
 
 var _addGateway bool

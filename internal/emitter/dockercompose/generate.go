@@ -6,9 +6,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"trunkit/internal/config"
-	"trunkit/internal/emitter/common"
-	osutil "trunkit/internal/util/os"
+	"github.com/ChisTrun/trunkit/internal/config"
+	"github.com/ChisTrun/trunkit/internal/emitter/common"
+	osutil "github.com/ChisTrun/trunkit/internal/util/os"
 )
 
 //go:embed *

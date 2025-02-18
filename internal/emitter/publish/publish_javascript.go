@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	"trunkit/internal/config"
-	"trunkit/internal/emitter/generate/js"
-	osutil "trunkit/internal/util/os"
+	"github.com/ChisTrun/trunkit/internal/config"
+	"github.com/ChisTrun/trunkit/internal/emitter/generate/js"
+	osutil "github.com/ChisTrun/trunkit/internal/util/os"
 
 	"github.com/briandowns/spinner"
 )

@@ -7,10 +7,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"trunkit/internal/constant"
-	"trunkit/internal/emitter/common"
-	"trunkit/internal/metadata"
-	osutil "trunkit/internal/util/os"
+	"github.com/ChisTrun/trunkit/internal/constant"
+	"github.com/ChisTrun/trunkit/internal/emitter/common"
+	"github.com/ChisTrun/trunkit/internal/metadata"
+	osutil "github.com/ChisTrun/trunkit/internal/util/os"
 )
 
 var _initFilePaths = []struct {

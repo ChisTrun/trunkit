@@ -8,9 +8,9 @@ import (
 
 	"github.com/emicklei/proto"
 
-	"trunkit/internal/config"
-	"trunkit/internal/metadata"
-	osutil "trunkit/internal/util/os"
+	"github.com/ChisTrun/trunkit/internal/config"
+	"github.com/ChisTrun/trunkit/internal/metadata"
+	osutil "github.com/ChisTrun/trunkit/internal/util/os"
 )
 
 func Go(cfg *config.GenerateConfig) {

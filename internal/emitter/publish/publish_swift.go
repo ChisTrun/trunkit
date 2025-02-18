@@ -10,9 +10,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	config "trunkit/internal/config"
-	"trunkit/internal/emitter/generate/swift"
-	"trunkit/internal/metadata"
+	config "github.com/ChisTrun/trunkit/internal/config"
+	"github.com/ChisTrun/trunkit/internal/emitter/generate/swift"
+	"github.com/ChisTrun/trunkit/internal/metadata"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
 	awsCfg "github.com/aws/aws-sdk-go-v2/config"

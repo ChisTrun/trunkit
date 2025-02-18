@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"strings"
 
-	"trunkit/internal/config"
+	"github.com/ChisTrun/trunkit/internal/config"
 )
 
 var _templates = map[string]string{

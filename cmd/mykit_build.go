@@ -3,9 +3,10 @@ package cmd
 import (
 	"fmt"
 
-	"trunkit/cmd/flags"
-	emitter "trunkit/internal/emitter/build"
-	"trunkit/internal/metadata"
+	"github.com/ChisTrun/trunkit/cmd/flags"
+
+	emitter "github.com/ChisTrun/trunkit/internal/emitter/build"
+	"github.com/ChisTrun/trunkit/internal/metadata"
 
 	"github.com/spf13/cobra"
 )

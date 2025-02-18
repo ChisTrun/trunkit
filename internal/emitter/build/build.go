@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	osutil "trunkit/internal/util/os"
+	osutil "github.com/ChisTrun/trunkit/internal/util/os"
 )
 
 var (

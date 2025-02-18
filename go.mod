@@ -1,4 +1,4 @@
-module trunkit
+module github.com/ChisTrun/trunkit
 
 go 1.20
 

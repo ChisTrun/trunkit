@@ -9,8 +9,8 @@ import (
 
 	"github.com/briandowns/spinner"
 
-	"trunkit/internal/constant"
-	osutil "trunkit/internal/util/os"
+	"github.com/ChisTrun/trunkit/internal/constant"
+	osutil "github.com/ChisTrun/trunkit/internal/util/os"
 )
 
 var (

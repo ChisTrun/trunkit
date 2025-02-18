@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"os"
 
-	"trunkit/internal/config"
-	"trunkit/internal/metadata"
+	"github.com/ChisTrun/trunkit/internal/config"
+	"github.com/ChisTrun/trunkit/internal/metadata"
 
 	"github.com/spf13/cobra"
 
-	emitter "trunkit/internal/emitter/generate/go"
-	"trunkit/internal/emitter/migrate"
+	emitter "github.com/ChisTrun/trunkit/internal/emitter/generate/go"
+	"github.com/ChisTrun/trunkit/internal/emitter/migrate"
 )
 
 var _cmdMigrate = &cobra.Command{
