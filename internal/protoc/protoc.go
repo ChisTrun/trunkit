@@ -169,7 +169,7 @@ func getImports(protoFiles []string, cfg *config.GenerateConfig) []string {
 
 	defaultProtoImports, defaultGoPackageImports := getDefaultImports(protoFiles)
 	for _, i := range defaultProtoImports {
-		importPath := filepath.Join(vendorDir, "vendor", i)
+		importPath := filepath.Join(vendorDir, i)
 		if _, found := importMap[importPath]; !found {
 			imports = append(imports, importPath)
 			importMap[importPath] = struct{}{}
@@ -248,8 +248,8 @@ var _defaultGoImports = []string{
 
 func getDefaultImports(protoFiles []string) ([]string, []string) {
 	protoImportMap := map[string]struct{}{
-		"gitlab.ugaming.io/marketplace":             {},
-		"github.com/envoyproxy/protoc-gen-validate": {},
+		"": {},
+		"vendor/github.com/envoyproxy/protoc-gen-validate": {},
 	}
 
 	goPackageMap := map[string]struct{}{}
