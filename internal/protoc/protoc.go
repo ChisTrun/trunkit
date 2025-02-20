@@ -248,7 +248,7 @@ var _defaultGoImports = []string{
 
 func getDefaultImports(protoFiles []string) ([]string, []string) {
 	protoImportMap := map[string]struct{}{
-		"": {},
+		"pkg": {},
 		"vendor/github.com/envoyproxy/protoc-gen-validate": {},
 	}
 
