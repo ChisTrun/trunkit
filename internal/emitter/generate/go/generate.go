@@ -16,6 +16,7 @@ import (
 	"github.com/ChisTrun/trunkit/internal/metadata"
 	"github.com/ChisTrun/trunkit/internal/protoc"
 	"github.com/ChisTrun/trunkit/internal/template"
+	"github.com/ChisTrun/trunkit/internal/util/gocmd"
 	osutil "github.com/ChisTrun/trunkit/internal/util/os"
 )
 
@@ -127,12 +128,12 @@ func Generate(cfg *config.GenerateConfig) {
 	generateClients(protoServices, cfg)
 	generateDockerfile(cfg)
 
-	// gocmd.Vendor(cfg)~
+	gocmd.Vendor(cfg)
 
 	generateEnt(cfg)
 	generateClientMocks(protoServices)
 
-	// gocmd.Vendor(cfg)
+	gocmd.Vendor(cfg)
 }
 
 const (

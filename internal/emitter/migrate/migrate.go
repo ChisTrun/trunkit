@@ -91,7 +91,7 @@ func Migrate(source, newServiceName string, cfg *config.GenerateConfig) {
 		fmt.Println("migrate failed", source, err)
 	}
 
-	// gocmd.Init(getPackage())
+	gocmd.Init(getPackage(), cfg)
 	// gocmd.Get([]string{
 	// 	"github.com/ChisTrun/myid@v1.2.1-myid-666fe14c",
 	// 	"github.com/ChisTrun/mywallet@v1.0.0-mywallet-cfe7cf0a",
