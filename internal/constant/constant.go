@@ -10,7 +10,7 @@ var (
 	GoBin     = filepath.Join(build.Default.GOPATH, "bin")
 	GoInclude = filepath.Join(build.Default.GOPATH, "include")
 
-	MyKitBase = "trunkit"
+	MyKitBase = "github.com/ChisTrun/trunkit"
 	MyKitPath = filepath.Join(GoPath, MyKitBase)
 
 	ValidateBase = "github.com/envoyproxy/protoc-gen-validate"
