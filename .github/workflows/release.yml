@@ -1,5 +1,3 @@
-name: release
-
 on:
   push:
     branches:
@@ -8,42 +6,64 @@ on:
 jobs:
   tag:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # cần để push tag
     outputs:
-      version_tag: ${{ steps.get_tag.outputs.tag }}
+      tag: ${{ steps.get_tag.outputs.tag }}
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # cần để lấy đầy đủ commit history và tag
+
       - name: Get latest tag
         id: get_tag
         run: |
+          # Lấy tag mới nhất (nếu chưa có thì dùng v0.0.0)
           latest_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
-          major=$(echo $latest_tag | cut -d. -f1 | sed 's/v//')
-          minor=$(echo $latest_tag | cut -d. -f2)
-          patch=$(echo $latest_tag | cut -d. -f3)
-          patch=$((patch+1))
+          echo "Latest tag: $latest_tag"
+
+          # Bỏ prefix v để tách số
+          version_no_v=${latest_tag#v}
+
+          # Tách version thành major, minor, patch
+          major=$(echo $version_no_v | cut -d. -f1)
+          minor=$(echo $version_no_v | cut -d. -f2)
+          patch=$(echo $version_no_v | cut -d. -f3)
+
+          # Tăng patch +1
+          patch=$((patch + 1))
           new_tag="v${major}.${minor}.${patch}"
+          echo "New tag: $new_tag"
+
           echo "tag=$new_tag" >> $GITHUB_OUTPUT
 
-      - name: Create and push tags
+      - name: Create and push new tag
         run: |
           git tag ${{ steps.get_tag.outputs.tag }}
           git push origin ${{ steps.get_tag.outputs.tag }}
-          git tag -f latest
-          git push origin latest --force
 
   goreleaser:
-    runs-on: ubuntu-latest
     needs: tag
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-go@v5
+          ref: ${{ needs.tag.outputs.tag }} # Checkout đúng tag vừa tạo
+
+      - name: Fetch all tags
+        run: git fetch --force --tags
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
         with:
           go-version: 1.24
+
       - name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v5
+        uses: goreleaser/goreleaser-action@v2
         with:
           version: latest
           args: release --clean
