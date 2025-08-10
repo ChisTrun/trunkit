@@ -5,11 +5,11 @@ ARG BOT_USER
 ARG BOT_PRIVATE_TOKEN
 WORKDIR /go/app
 ADD go.mod /go/app/go.mod
-RUN echo "machine gitlab.ugaming.io" >> ~/.netrc && \
+RUN echo "machine github.com" >> ~/.netrc && \
     echo "login $BOT_USER" >> ~/.netrc && \
     echo "password $BOT_PRIVATE_TOKEN" >> ~/.netrc
-RUN git config --global url."https://${BOT_USER}:${BOT_PRIVATE_TOKEN}@gitlab.ugaming.io/".insteadOf https://gitlab.ugaming.io/ &&\
-    go env -w GOPRIVATE=gitlab.ugaming.io && \
+RUN git config --global url."https://${BOT_USER}:${BOT_PRIVATE_TOKEN}@github.com/".insteadOf https://github.com/ &&\
+    go env -w GOPRIVATE=github.com && \
     go mod download all && cp go.sum /tmp/go.sum
 ADD . /go/app
 ARG service

@@ -230,25 +230,25 @@ func getImports(protoFiles []string, cfg *config.GenerateConfig) []string {
 // value is the path to proto file
 // generated go files should be in the same place with proto file
 var _defaultImportPaths = map[string]string{
-	"carbon.proto":   "gitlab.ugaming.io/marketplace/carbon/api",
-	"database.proto": "gitlab.ugaming.io/marketplace/database/api",
-	"logger.proto":   "gitlab.ugaming.io/marketplace/logger/api",
-	"redis.proto":    "gitlab.ugaming.io/marketplace/redis/api",
-	"kafka.proto":    "gitlab.ugaming.io/marketplace/kafka/api",
+	"carbon.proto":   "github.com/ChisTrun/carbon/api",
+	"database.proto": "github.com/ChisTrun/database/api",
+	"logger.proto":   "github.com/ChisTrun/logger/api",
+	"redis.proto":    "github.com/ChisTrun/redis/api",
+	"kafka.proto":    "github.com/ChisTrun/kafka/api",
 }
 
 var _defaultGoImports = []string{
 	"github.com/envoyproxy/protoc-gen-validate/validate",
-	"gitlab.ugaming.io/marketplace/carbon/api",
-	"gitlab.ugaming.io/marketplace/database/api",
-	"gitlab.ugaming.io/marketplace/logger/api",
-	"gitlab.ugaming.io/marketplace/redis/api",
-	"gitlab.ugaming.io/marketplace/kafka/api",
+	"github.com/ChisTrun/carbon/api",
+	"github.com/ChisTrun/database/api",
+	"github.com/ChisTrun/logger/api",
+	"github.com/ChisTrun/redis/api",
+	"github.com/ChisTrun/kafka/api",
 }
 
 func getDefaultImports(protoFiles []string) ([]string, []string) {
 	protoImportMap := map[string]struct{}{
-		"gitlab.ugaming.io/marketplace":             {},
+		"github.com/ChisTrun":                       {},
 		"github.com/envoyproxy/protoc-gen-validate": {},
 	}
 

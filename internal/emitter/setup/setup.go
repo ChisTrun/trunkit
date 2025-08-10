@@ -14,7 +14,7 @@ import (
 const (
 	_protobufHome                = "https://github.com/protocolbuffers/protobuf/releases/tag/v3.19.4"
 	_grpcWebHome                 = "https://github.com/grpc/grpc-web/releases/tag/1.3.1"
-	_protocGenGotagHome          = "https://gitlab.ugaming.io/marketplace/protoc-gen-gotag"
+	_protocGenGotagHome          = "https://github.com/ChisTrun/protoc-gen-gotag"
 	_cmdInstallProtocGenGo       = "go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1"
 	_cmdInstallProtocGenGoGrpc   = "go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2"
 	_cmdInstallProtocGenValidate = "go install github.com/envoyproxy/protoc-gen-validate@v0.10.1"

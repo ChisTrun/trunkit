@@ -92,11 +92,11 @@ func Migrate(source, newServiceName string, cfg *config.GenerateConfig) {
 	}
 
 	// gocmd.Init(getPackage())
-	//gocmd.Get([]string{
-	//	"gitlab.ugaming.io/marketplace/myid@v1.2.1-myid-666fe14c",
-	//	"gitlab.ugaming.io/marketplace/mywallet@v1.0.0-mywallet-cfe7cf0a",
-	//	"gitlab.ugaming.io/marketplace/potter@v1.0.0-potter-c5a6f005",
-	//})
+	// gocmd.Get([]string{
+	// 	"github.com/ChisTrun/myid@v1.2.1-myid-666fe14c",
+	// 	"github.com/ChisTrun/mywallet@v1.0.0-mywallet-cfe7cf0a",
+	// 	"github.com/ChisTrun/potter@v1.0.0-potter-c5a6f005",
+	// })
 	gocmd.Vendor(cfg)
 }
 
@@ -107,15 +107,15 @@ func replaceGoImports(fileContent string) string {
 		fileContent = strings.ReplaceAll(fileContent, "*carbon.Kafka", "*kafkaapi.Kafka")
 		if !strings.Contains(fileContent, "*carbon.") {
 			if strings.Contains(fileContent, "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"") {
-				fileContent = strings.ReplaceAll(fileContent, "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"", "kafkaapi \"gitlab.ugaming.io/marketplace/kafka/api\"")
+				fileContent = strings.ReplaceAll(fileContent, "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"", "kafkaapi \"github.com/ChisTrun/kafka/api\"")
 			} else {
-				fileContent = strings.ReplaceAll(fileContent, "\"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"", "kafkaapi \"gitlab.ugaming.io/marketplace/kafka/api\"")
+				fileContent = strings.ReplaceAll(fileContent, "\"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"", "kafkaapi \"github.com/ChisTrun/kafka/api\"")
 			}
 		} else {
 			if strings.Contains(fileContent, "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"") {
-				fileContent = strings.ReplaceAll(fileContent, "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"", "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"\nkafkaapi \"gitlab.ugaming.io/marketplace/kafka/api\"")
+				fileContent = strings.ReplaceAll(fileContent, "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"", "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"\nkafkaapi \"github.com/ChisTrun/kafka/api\"")
 			} else {
-				fileContent = strings.ReplaceAll(fileContent, "\"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"", "\"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"\nkafkaapi \"gitlab.ugaming.io/marketplace/kafka/api\"")
+				fileContent = strings.ReplaceAll(fileContent, "\"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"", "\"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"\nkafkaapi \"github.com/ChisTrun/kafka/api\"")
 			}
 		}
 	}
@@ -124,68 +124,68 @@ func replaceGoImports(fileContent string) string {
 		fileContent = strings.ReplaceAll(fileContent, "*carbon.Redis", "*redisapi.Redis")
 		if !strings.Contains(fileContent, "*carbon.") {
 			if strings.Contains(fileContent, "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"") {
-				fileContent = strings.ReplaceAll(fileContent, "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"", "redisapi \"gitlab.ugaming.io/marketplace/redis/api\"")
+				fileContent = strings.ReplaceAll(fileContent, "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"", "redisapi \"github.com/ChisTrun/redis/api\"")
 			} else {
-				fileContent = strings.ReplaceAll(fileContent, "\"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"", "redisapi \"gitlab.ugaming.io/marketplace/redis/api\"")
+				fileContent = strings.ReplaceAll(fileContent, "\"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"", "redisapi \"github.com/ChisTrun/redis/api\"")
 			}
 		} else {
 			if strings.Contains(fileContent, "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"") {
-				fileContent = strings.ReplaceAll(fileContent, "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"", "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"\nredisapi \"gitlab.ugaming.io/marketplace/redis/api\"")
+				fileContent = strings.ReplaceAll(fileContent, "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"", "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"\nredisapi \"github.com/ChisTrun/redis/api\"")
 			} else {
-				fileContent = strings.ReplaceAll(fileContent, "\"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"", "\"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"\nredisapi \"gitlab.ugaming.io/marketplace/redis/api\"")
+				fileContent = strings.ReplaceAll(fileContent, "\"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"", "\"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"\nredisapi \"github.com/ChisTrun/redis/api\"")
 			}
 		}
 	}
 
 	if strings.Contains(fileContent, "nightkitgrpc \"gitlab.com/inspirelab/greyhole/night-kit/pkg/grpc\"") {
-		fileContent = strings.ReplaceAll(fileContent, "nightkitgrpc \"gitlab.com/inspirelab/greyhole/night-kit/pkg/grpc\"", "mykitgrpc \"gitlab.ugaming.io/marketplace/grpc/pkg/client\"")
+		fileContent = strings.ReplaceAll(fileContent, "nightkitgrpc \"gitlab.com/inspirelab/greyhole/night-kit/pkg/grpc\"", "mykitgrpc \"github.com/ChisTrun/grpc/pkg/client\"")
 	} else {
-		fileContent = strings.ReplaceAll(fileContent, "mykit/pkg/grpc", "grpc \"gitlab.ugaming.io/marketplace/grpc/pkg/client\"")
+		fileContent = strings.ReplaceAll(fileContent, "mykit/pkg/grpc", "grpc \"github.com/ChisTrun/grpc/pkg/client\"")
 	}
 
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole/night-kit/pkg/config", "gitlab.ugaming.io/marketplace/carbon/pkg/config")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon", "gitlab.ugaming.io/marketplace/carbon/api")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole/night-kit/pkg/redis", "gitlab.ugaming.io/marketplace/redis/pkg/client")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole/night-kit/pkg/kafka", "gitlab.ugaming.io/marketplace/kafka/pkg")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole/night-kit/pkg/logging", "gitlab.ugaming.io/marketplace/logger/pkg/logging")
-	fileContent = strings.ReplaceAll(fileContent, "\"gitlab.com/inspirelab/greyhole/night-kit/pkg/grpc\"", "grpc \"gitlab.ugaming.io/marketplace/grpc/pkg/client\"")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole/night-kit/pkg/config", "github.com/ChisTrun/carbon/pkg/config")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon", "github.com/ChisTrun/carbon/api")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole/night-kit/pkg/redis", "github.com/ChisTrun/redis/pkg/client")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole/night-kit/pkg/kafka", "github.com/ChisTrun/kafka/pkg")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole/night-kit/pkg/logging", "github.com/ChisTrun/logger/pkg/logging")
+	fileContent = strings.ReplaceAll(fileContent, "\"gitlab.com/inspirelab/greyhole/night-kit/pkg/grpc\"", "grpc \"github.com/ChisTrun/grpc/pkg/client\"")
 
 	fileContent = strings.ReplaceAll(fileContent, "nightkit \"gitlab.com/inspirelab/greyhole/night-kit/pkg/api\"", "mykit \"mykit/pkg/api\"")
-	fileContent = strings.ReplaceAll(fileContent, "nightent \"gitlab.com/inspirelab/greyhole/night-kit/pkg/ent\"", "dbe \"gitlab.ugaming.io/marketplace/database/pkg/ent\"")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole/night-kit/pkg/ent", "gitlab.ugaming.io/marketplace/database/pkg/ent")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole", "gitlab.ugaming.io/marketplace")
+	fileContent = strings.ReplaceAll(fileContent, "nightent \"gitlab.com/inspirelab/greyhole/night-kit/pkg/ent\"", "dbe \"github.com/ChisTrun/database/pkg/ent\"")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole/night-kit/pkg/ent", "github.com/ChisTrun/database/pkg/ent")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole", "github.com/ChisTrun")
 
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/conveyor/pkg/api", "gitlab.ugaming.io/marketplace/conveyor/api")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/bentau/pkg/client/v1", "gitlab.ugaming.io/marketplace/bentau/pkg/client")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/playah/pkg/client/v1", "gitlab.ugaming.io/marketplace/playah/pkg/client")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/playah/pkg/client/v2", "gitlab.ugaming.io/marketplace/playah/pkg/client")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/playah/pkg/client/v3", "gitlab.ugaming.io/marketplace/playah/pkg/client")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/playah/pkg/api/v1", "gitlab.ugaming.io/marketplace/playah/api")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/playah/pkg/api", "gitlab.ugaming.io/marketplace/playah/api")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/whatsapp/pkg/api", "gitlab.ugaming.io/marketplace/whatsapp/api")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/whatsapp/pkg/app/v1", "gitlab.ugaming.io/marketplace/whatsapp/pkg/app")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/whatsapp/pkg/app/v2", "gitlab.ugaming.io/marketplace/whatsapp/pkg/app")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/whatsapp/pkg/app/v3", "gitlab.ugaming.io/marketplace/whatsapp/pkg/app")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/bentau/pkg/api", "gitlab.ugaming.io/marketplace/bentau/api")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/mywallet/pkg/client/steward/v1", "gitlab.ugaming.io/marketplace/mywallet/pkg/client/steward")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/mywallet/pkg/api", "gitlab.ugaming.io/marketplace/mywallet/api")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/myaccount/pkg/api", "gitlab.ugaming.io/marketplace/myaccount/api")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/slot/pkg/api", "gitlab.ugaming.io/marketplace/slot/api")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/tinder/pkg/api", "gitlab.ugaming.io/marketplace/tinder/api")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/conveyor/pkg/api", "github.com/ChisTrun/conveyor/api")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/bentau/pkg/client/v1", "github.com/ChisTrun/bentau/pkg/client")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/playah/pkg/client/v1", "github.com/ChisTrun/playah/pkg/client")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/playah/pkg/client/v2", "github.com/ChisTrun/playah/pkg/client")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/playah/pkg/client/v3", "github.com/ChisTrun/playah/pkg/client")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/playah/pkg/api/v1", "github.com/ChisTrun/playah/api")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/playah/pkg/api", "github.com/ChisTrun/playah/api")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/whatsapp/pkg/api", "github.com/ChisTrun/whatsapp/api")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/whatsapp/pkg/app/v1", "github.com/ChisTrun/whatsapp/pkg/app")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/whatsapp/pkg/app/v2", "github.com/ChisTrun/whatsapp/pkg/app")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/whatsapp/pkg/app/v3", "github.com/ChisTrun/whatsapp/pkg/app")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/bentau/pkg/api", "github.com/ChisTrun/bentau/api")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/mywallet/pkg/client/steward/v1", "github.com/ChisTrun/mywallet/pkg/client/steward")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/mywallet/pkg/api", "github.com/ChisTrun/mywallet/api")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/myaccount/pkg/api", "github.com/ChisTrun/myaccount/api")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/slot/pkg/api", "github.com/ChisTrun/slot/api")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend/tinder/pkg/api", "github.com/ChisTrun/tinder/api")
 	fileContent = strings.ReplaceAll(fileContent, "\"gitlab.com/inspirelab/gameloot/monorepo/backend/shared/random\"", "")
 
 	fileContent = strings.ReplaceAll(fileContent, _oldGoPackage, _newGoPackage)
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend", "gitlab.ugaming.io/marketplace")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/backend", "gitlab.ugaming.io/marketplace")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend", "github.com/ChisTrun")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/backend", "github.com/ChisTrun")
 
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.ugaming.io/marketplace/nats/pkg/pusher/v1", "gitlab.ugaming.io/marketplace/nats/pkg/pusher")
-	fileContent = strings.ReplaceAll(fileContent, "mykit/pkg/config", "gitlab.ugaming.io/marketplace/carbon/pkg/config")
-	fileContent = strings.ReplaceAll(fileContent, "mykit/pkg/carbon", "gitlab.ugaming.io/marketplace/carbon/api")
-	fileContent = strings.ReplaceAll(fileContent, "mykit/pkg/redis", "gitlab.ugaming.io/marketplace/redis/pkg/client")
-	fileContent = strings.ReplaceAll(fileContent, "mykit/pkg/kafka", "gitlab.ugaming.io/marketplace/kafka/pkg")
-	fileContent = strings.ReplaceAll(fileContent, "mykit/pkg/logging", "gitlab.ugaming.io/marketplace/logger/pkg/logging")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.ugaming.io/marketplace/bentau/pkg/client/v1", "gitlab.ugaming.io/marketplace/bentau/pkg/client")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.ugaming.io/marketplace/mywallet/pkg/client/steward/v1", "gitlab.ugaming.io/marketplace/mywallet/pkg/client/steward")
+	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/nats/pkg/pusher/v1", "github.com/ChisTrun/nats/pkg/pusher")
+	fileContent = strings.ReplaceAll(fileContent, "mykit/pkg/config", "github.com/ChisTrun/carbon/pkg/config")
+	fileContent = strings.ReplaceAll(fileContent, "mykit/pkg/carbon", "github.com/ChisTrun/carbon/api")
+	fileContent = strings.ReplaceAll(fileContent, "mykit/pkg/redis", "github.com/ChisTrun/redis/pkg/client")
+	fileContent = strings.ReplaceAll(fileContent, "mykit/pkg/kafka", "github.com/ChisTrun/kafka/pkg")
+	fileContent = strings.ReplaceAll(fileContent, "mykit/pkg/logging", "github.com/ChisTrun/logger/pkg/logging")
+	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/bentau/pkg/client/v1", "github.com/ChisTrun/bentau/pkg/client")
+	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/mywallet/pkg/client/steward/v1", "github.com/ChisTrun/mywallet/pkg/client/steward")
 
 	fileContent = strings.ReplaceAll(fileContent, "*carbon.DatabaseV2", "*carbon.Database")
 	fileContent = strings.ReplaceAll(fileContent, "nightkit", "mykit")
@@ -200,11 +200,11 @@ func replaceGoImports(fileContent string) string {
 		fileContent = strings.ReplaceAll(fileContent, _oldServiceName+".", _newServiceName+".")
 	}
 
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.ugaming.io/marketplace/rpc/pkg/api", "gitlab.ugaming.io/marketplace/grpc/pkg/api")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.ugaming.io/marketplace/rpc/pkg/error", "gitlab.ugaming.io/marketplace/grpc/pkg/error")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.ugaming.io/marketplace/rpc/pkg/status", "gitlab.ugaming.io/marketplace/grpc/pkg/status")
+	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/rpc/pkg/api", "github.com/ChisTrun/grpc/pkg/api")
+	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/rpc/pkg/error", "github.com/ChisTrun/grpc/pkg/error")
+	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/rpc/pkg/status", "github.com/ChisTrun/grpc/pkg/status")
 
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/dceu/monorepo/backend", "gitlab.ugaming.io/marketplace/dceu/backend")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/dceu/monorepo/backend", "github.com/ChisTrun/dceu/backend")
 
 	return fileContent
 }
@@ -212,9 +212,9 @@ func replaceGoImports(fileContent string) string {
 func replaceProtoImport(fileContent string) string {
 	fileContent = strings.ReplaceAll(fileContent, "night-kit", "carbon")
 	fileContent = strings.ReplaceAll(fileContent, _oldGoPackage, _newGoPackage)
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend", "gitlab.ugaming.io/marketplace")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/backend", "gitlab.ugaming.io/marketplace")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole", "gitlab.ugaming.io/marketplace")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/monorepo/backend", "github.com/ChisTrun")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/backend", "github.com/ChisTrun")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole", "github.com/ChisTrun")
 
 	if strings.Contains(fileContent, fmt.Sprintf("import \"%s/api/%s_import.proto\";", _oldServiceName, _oldServiceName)) {
 		fileContent = strings.ReplaceAll(fileContent, fmt.Sprintf("import \"%s/api/%s_import.proto\";", _oldServiceName, _oldServiceName), "import \"mywallet/api/v1/mywallet_change.proto\";\nimport \"playah/api/playah.proto\";")
@@ -251,7 +251,7 @@ func replaceProtoImport(fileContent string) string {
 	fileContent = strings.ReplaceAll(fileContent, "carbon.Listener", "greyhole.carbon.Listener")
 	fileContent = strings.ReplaceAll(fileContent, "carbon.TCPSocket", "greyhole.carbon.TCPSocket")
 
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/dceu/monorepo/backend", "gitlab.ugaming.io/marketplace/dceu/backend")
+	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/dceu/monorepo/backend", "github.com/ChisTrun/dceu/backend")
 
 	return fileContent
 }
