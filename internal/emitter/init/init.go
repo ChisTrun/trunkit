@@ -143,7 +143,7 @@ func Init(pkg, name string, monorepo bool, typ string) {
 	}
 	fmt.Println()
 
-	cmd := exec.Command("mykit", "generate", "go", "-u")
+	cmd := exec.Command("mykit", "generate", "go", "-u", "")
 	cmd.Dir = metadata.Dir
 	cmd.Stdout = os.Stdout
 	err := cmd.Run()
