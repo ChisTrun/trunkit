@@ -237,7 +237,7 @@ var _defaultImportPaths = map[string]string{
 }
 
 var _defaultGoImports = []string{
-	"github.com/envoyproxy/protoc-gen-validate@latest",
+	"github.com/envoyproxy/protoc-gen-validate",
 	"github.com/ChisTrun/carbon/api",
 	"github.com/ChisTrun/database/api",
 	"github.com/ChisTrun/logger/api",
