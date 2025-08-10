@@ -103,22 +103,7 @@ func Migrate(source, newServiceName string, cfg *config.GenerateConfig) {
 func replaceGoImports(fileContent string) string {
 	fileContent = strings.ReplaceAll(fileContent, "*api.TCPSocket", "*carbon.TCPSocket")
 
-	if strings.Contains(fileContent, "*carbon.Kafka") {
-		fileContent = strings.ReplaceAll(fileContent, "*carbon.Kafka", "*kafkaapi.Kafka")
-		if !strings.Contains(fileContent, "*carbon.") {
-			if strings.Contains(fileContent, "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"") {
-				fileContent = strings.ReplaceAll(fileContent, "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"", "kafkaapi \"github.com/ChisTrun/kafka/api\"")
-			} else {
-				fileContent = strings.ReplaceAll(fileContent, "\"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"", "kafkaapi \"github.com/ChisTrun/kafka/api\"")
-			}
-		} else {
-			if strings.Contains(fileContent, "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"") {
-				fileContent = strings.ReplaceAll(fileContent, "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"", "carbon \"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"\nkafkaapi \"github.com/ChisTrun/kafka/api\"")
-			} else {
-				fileContent = strings.ReplaceAll(fileContent, "\"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"", "\"gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon\"\nkafkaapi \"github.com/ChisTrun/kafka/api\"")
-			}
-		}
-	}
+	
 
 	if strings.Contains(fileContent, "*carbon.Redis") {
 		fileContent = strings.ReplaceAll(fileContent, "*carbon.Redis", "*redisapi.Redis")
@@ -146,7 +131,6 @@ func replaceGoImports(fileContent string) string {
 	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole/night-kit/pkg/config", "github.com/ChisTrun/carbon/pkg/config")
 	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole/night-kit/pkg/carbon", "github.com/ChisTrun/carbon/api")
 	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole/night-kit/pkg/redis", "github.com/ChisTrun/redis/pkg/client")
-	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole/night-kit/pkg/kafka", "github.com/ChisTrun/kafka/pkg")
 	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole/night-kit/pkg/logging", "github.com/ChisTrun/logger/pkg/logging")
 	fileContent = strings.ReplaceAll(fileContent, "\"gitlab.com/inspirelab/greyhole/night-kit/pkg/grpc\"", "grpc \"github.com/ChisTrun/grpc/pkg/client\"")
 
@@ -182,7 +166,6 @@ func replaceGoImports(fileContent string) string {
 	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/trunkit/pkg/config", "github.com/ChisTrun/carbon/pkg/config")
 	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/trunkit/pkg/carbon", "github.com/ChisTrun/carbon/api")
 	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/trunkit/pkg/redis", "github.com/ChisTrun/redis/pkg/client")
-	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/trunkit/pkg/kafka", "github.com/ChisTrun/kafka/pkg")
 	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/trunkit/pkg/logging", "github.com/ChisTrun/logger/pkg/logging")
 	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/bentau/pkg/client/v1", "github.com/ChisTrun/bentau/pkg/client")
 	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/mywallet/pkg/client/steward/v1", "github.com/ChisTrun/mywallet/pkg/client/steward")
@@ -243,10 +226,6 @@ func replaceProtoImport(fileContent string) string {
 		fileContent = strings.ReplaceAll(fileContent, "carbon.Redis", "greyhole.redis.Redis")
 	}
 
-	if strings.Contains(fileContent, "carbon.Kafka") {
-		fileContent = strings.ReplaceAll(fileContent, "import \"validate/validate.proto\";", "import \"validate/validate.proto\";\nimport \"kafka/api/kafka.proto\";")
-		fileContent = strings.ReplaceAll(fileContent, "carbon.Kafka", "greyhole.kafka.Kafka")
-	}
 
 	fileContent = strings.ReplaceAll(fileContent, "carbon.Listener", "greyhole.carbon.Listener")
 	fileContent = strings.ReplaceAll(fileContent, "carbon.TCPSocket", "greyhole.carbon.TCPSocket")

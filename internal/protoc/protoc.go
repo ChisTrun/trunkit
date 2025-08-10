@@ -234,16 +234,14 @@ var _defaultImportPaths = map[string]string{
 	"database.proto": "github.com/ChisTrun/database/api",
 	"logger.proto":   "github.com/ChisTrun/logger/api",
 	"redis.proto":    "github.com/ChisTrun/redis/api",
-	"kafka.proto":    "github.com/ChisTrun/kafka/api",
 }
 
 var _defaultGoImports = []string{
-	"github.com/envoyproxy/protoc-gen-validate/validate",
+	"github.com/envoyproxy/protoc-gen-validate@latest",
 	"github.com/ChisTrun/carbon/api",
 	"github.com/ChisTrun/database/api",
 	"github.com/ChisTrun/logger/api",
 	"github.com/ChisTrun/redis/api",
-	"github.com/ChisTrun/kafka/api",
 }
 
 func getDefaultImports(protoFiles []string) ([]string, []string) {
