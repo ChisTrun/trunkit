@@ -1,0 +1,47 @@
+name: Auto Tag
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # cần để push tag
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # cần để lấy đầy đủ commit history và tag
+
+      - name: Get latest tag
+        id: get_tag
+        run: |
+          # Lấy tag mới nhất (nếu chưa có thì dùng 0.0.0)
+          latest_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "0.0.0")
+          echo "Latest tag: $latest_tag"
+
+          # Tách version thành major, minor, patch
+          major=$(echo $latest_tag | cut -d. -f1)
+          minor=$(echo $latest_tag | cut -d. -f2)
+          patch=$(echo $latest_tag | cut -d. -f3)
+
+          # Tăng patch +1
+          patch=$((patch + 1))
+          new_tag="${major}.${minor}.${patch}"
+          echo "New tag: $new_tag"
+
+          echo "tag=$new_tag" >> $GITHUB_OUTPUT
+
+      - name: Create and push new tag
+        run: |
+          # Tạo version tag
+          git tag ${{ steps.get_tag.outputs.tag }}
+          git push origin ${{ steps.get_tag.outputs.tag }}
+
+          # Tạo/di chuyển latest tag
+          git tag -f latest
+          git push origin latest --force
