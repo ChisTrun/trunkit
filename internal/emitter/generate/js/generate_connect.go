@@ -7,10 +7,10 @@ import (
 	"regexp"
 	"strings"
 
-	"mykit/internal/config"
-	"mykit/internal/emitter/common"
-	"mykit/internal/metadata"
-	"mykit/internal/protoc"
+	"github.com/ChisTrun/trunkit/internal/config"
+	"github.com/ChisTrun/trunkit/internal/emitter/common"
+	"github.com/ChisTrun/trunkit/internal/metadata"
+	"github.com/ChisTrun/trunkit/internal/protoc"
 
 	"github.com/emicklei/proto"
 )

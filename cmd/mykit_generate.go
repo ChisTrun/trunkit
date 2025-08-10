@@ -4,15 +4,15 @@ import (
 	"fmt"
 	"os"
 
-	"mykit/internal/config"
-	"mykit/internal/metadata"
+	"github.com/ChisTrun/trunkit/internal/config"
+	"github.com/ChisTrun/trunkit/internal/metadata"
 
 	"github.com/spf13/cobra"
 
-	goemitter "mykit/internal/emitter/generate/go"
-	"mykit/internal/emitter/generate/java"
-	jsemitter "mykit/internal/emitter/generate/js"
-	"mykit/internal/emitter/generate/swift"
+	goemitter "github.com/ChisTrun/trunkit/internal/emitter/generate/go"
+	"github.com/ChisTrun/trunkit/internal/emitter/generate/java"
+	jsemitter "github.com/ChisTrun/trunkit/internal/emitter/generate/js"
+	"github.com/ChisTrun/trunkit/internal/emitter/generate/swift"
 )
 
 var _cmdGenerate = &cobra.Command{

@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"strings"
 
-	"mykit/internal/config"
+	"github.com/ChisTrun/trunkit/internal/config"
 )
 
 var _templates = map[string]string{

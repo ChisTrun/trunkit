@@ -1,4 +1,4 @@
-module mykit
+module github.com/ChisTrun/trunkit
 
 go 1.24.4
 

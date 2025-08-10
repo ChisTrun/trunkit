@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 	"time"
 
-	"mykit/internal/config"
-	"mykit/internal/metadata"
+	"github.com/ChisTrun/trunkit/internal/config"
+	"github.com/ChisTrun/trunkit/internal/metadata"
 )
 
 func Swift(cfg *config.GenerateConfig) string {

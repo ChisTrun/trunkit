@@ -7,7 +7,7 @@ import (
 	"path"
 	"path/filepath"
 
-	"mykit/internal/metadata"
+	"github.com/ChisTrun/trunkit/internal/metadata"
 
 	"gopkg.in/yaml.v3"
 )

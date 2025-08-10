@@ -5,8 +5,8 @@ import (
 	"os"
 	"os/exec"
 
-	"mykit/internal/config"
-	"mykit/internal/emitter/generate/java"
+	"github.com/ChisTrun/trunkit/internal/config"
+	"github.com/ChisTrun/trunkit/internal/emitter/generate/java"
 )
 
 // Publish maven package in Gitlab

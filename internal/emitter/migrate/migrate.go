@@ -10,12 +10,12 @@ import (
 
 	"gopkg.in/yaml.v3"
 
-	"mykit/internal/config"
-	"mykit/internal/constant"
-	"mykit/internal/emitter/common"
-	"mykit/internal/metadata"
-	"mykit/internal/util/gocmd"
-	osutil "mykit/internal/util/os"
+	"github.com/ChisTrun/trunkit/internal/config"
+	"github.com/ChisTrun/trunkit/internal/constant"
+	"github.com/ChisTrun/trunkit/internal/emitter/common"
+	"github.com/ChisTrun/trunkit/internal/metadata"
+	"github.com/ChisTrun/trunkit/internal/util/gocmd"
+	osutil "github.com/ChisTrun/trunkit/internal/util/os"
 )
 
 var (
@@ -140,7 +140,7 @@ func replaceGoImports(fileContent string) string {
 	if strings.Contains(fileContent, "nightkitgrpc \"gitlab.com/inspirelab/greyhole/night-kit/pkg/grpc\"") {
 		fileContent = strings.ReplaceAll(fileContent, "nightkitgrpc \"gitlab.com/inspirelab/greyhole/night-kit/pkg/grpc\"", "mykitgrpc \"github.com/ChisTrun/grpc/pkg/client\"")
 	} else {
-		fileContent = strings.ReplaceAll(fileContent, "mykit/pkg/grpc", "grpc \"github.com/ChisTrun/grpc/pkg/client\"")
+		fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/trunkit/pkg/grpc", "grpc \"github.com/ChisTrun/grpc/pkg/client\"")
 	}
 
 	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole/night-kit/pkg/config", "github.com/ChisTrun/carbon/pkg/config")
@@ -150,7 +150,7 @@ func replaceGoImports(fileContent string) string {
 	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole/night-kit/pkg/logging", "github.com/ChisTrun/logger/pkg/logging")
 	fileContent = strings.ReplaceAll(fileContent, "\"gitlab.com/inspirelab/greyhole/night-kit/pkg/grpc\"", "grpc \"github.com/ChisTrun/grpc/pkg/client\"")
 
-	fileContent = strings.ReplaceAll(fileContent, "nightkit \"gitlab.com/inspirelab/greyhole/night-kit/pkg/api\"", "mykit \"mykit/pkg/api\"")
+	fileContent = strings.ReplaceAll(fileContent, "nightkit \"gitlab.com/inspirelab/greyhole/night-kit/pkg/api\"", "mykit \"github.com/ChisTrun/trunkit/pkg/api\"")
 	fileContent = strings.ReplaceAll(fileContent, "nightent \"gitlab.com/inspirelab/greyhole/night-kit/pkg/ent\"", "dbe \"github.com/ChisTrun/database/pkg/ent\"")
 	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole/night-kit/pkg/ent", "github.com/ChisTrun/database/pkg/ent")
 	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/greyhole", "github.com/ChisTrun")
@@ -179,11 +179,11 @@ func replaceGoImports(fileContent string) string {
 	fileContent = strings.ReplaceAll(fileContent, "gitlab.com/inspirelab/gameloot/backend", "github.com/ChisTrun")
 
 	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/nats/pkg/pusher/v1", "github.com/ChisTrun/nats/pkg/pusher")
-	fileContent = strings.ReplaceAll(fileContent, "mykit/pkg/config", "github.com/ChisTrun/carbon/pkg/config")
-	fileContent = strings.ReplaceAll(fileContent, "mykit/pkg/carbon", "github.com/ChisTrun/carbon/api")
-	fileContent = strings.ReplaceAll(fileContent, "mykit/pkg/redis", "github.com/ChisTrun/redis/pkg/client")
-	fileContent = strings.ReplaceAll(fileContent, "mykit/pkg/kafka", "github.com/ChisTrun/kafka/pkg")
-	fileContent = strings.ReplaceAll(fileContent, "mykit/pkg/logging", "github.com/ChisTrun/logger/pkg/logging")
+	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/trunkit/pkg/config", "github.com/ChisTrun/carbon/pkg/config")
+	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/trunkit/pkg/carbon", "github.com/ChisTrun/carbon/api")
+	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/trunkit/pkg/redis", "github.com/ChisTrun/redis/pkg/client")
+	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/trunkit/pkg/kafka", "github.com/ChisTrun/kafka/pkg")
+	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/trunkit/pkg/logging", "github.com/ChisTrun/logger/pkg/logging")
 	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/bentau/pkg/client/v1", "github.com/ChisTrun/bentau/pkg/client")
 	fileContent = strings.ReplaceAll(fileContent, "github.com/ChisTrun/mywallet/pkg/client/steward/v1", "github.com/ChisTrun/mywallet/pkg/client/steward")
 

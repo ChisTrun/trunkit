@@ -8,11 +8,11 @@ import (
 
 	"github.com/emicklei/proto"
 
-	"mykit/internal/config"
-	"mykit/internal/metadata"
-	googleapis "mykit/internal/proto"
-	"mykit/internal/util/gocmd"
-	osutil "mykit/internal/util/os"
+	"github.com/ChisTrun/trunkit/internal/config"
+	"github.com/ChisTrun/trunkit/internal/metadata"
+	googleapis "github.com/ChisTrun/trunkit/internal/proto"
+	"github.com/ChisTrun/trunkit/internal/util/gocmd"
+	osutil "github.com/ChisTrun/trunkit/internal/util/os"
 )
 
 func ParseProto(filePath string) (*proto.Proto, error) {

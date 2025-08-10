@@ -7,9 +7,9 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"mykit/internal/config"
-	"mykit/internal/emitter/publish"
-	"mykit/internal/metadata"
+	"github.com/ChisTrun/trunkit/internal/config"
+	"github.com/ChisTrun/trunkit/internal/emitter/publish"
+	"github.com/ChisTrun/trunkit/internal/metadata"
 )
 
 var (

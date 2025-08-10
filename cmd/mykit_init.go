@@ -9,9 +9,9 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"mykit/internal/constant"
-	emitter "mykit/internal/emitter/init"
-	"mykit/internal/metadata"
+	"github.com/ChisTrun/trunkit/internal/constant"
+	emitter "github.com/ChisTrun/trunkit/internal/emitter/init"
+	"github.com/ChisTrun/trunkit/internal/metadata"
 )
 
 var (

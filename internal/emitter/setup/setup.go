@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"mykit/internal/constant"
-	osutil "mykit/internal/util/os"
+	"github.com/ChisTrun/trunkit/internal/constant"
+	osutil "github.com/ChisTrun/trunkit/internal/util/os"
 )
 
 const (

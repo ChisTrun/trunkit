@@ -8,10 +8,10 @@ import (
 
 	"github.com/briandowns/spinner"
 
-	"mykit/internal/config"
-	"mykit/internal/emitter/common"
-	"mykit/internal/metadata"
-	osutil "mykit/internal/util/os"
+	"github.com/ChisTrun/trunkit/internal/config"
+	"github.com/ChisTrun/trunkit/internal/emitter/common"
+	"github.com/ChisTrun/trunkit/internal/metadata"
+	osutil "github.com/ChisTrun/trunkit/internal/util/os"
 )
 
 func Init(pkg string, cfg *config.GenerateConfig) {
